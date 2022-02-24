@@ -1,7 +1,10 @@
 const moment = require('moment');
 
-function getDate(days, months, years, format){
+function getDate(seconds, minutes, hours, days, months, years, format){
     let m = moment();
+    m.add(seconds, 'seconds');
+    m.add(minutes, 'minutes');
+    m.add(hours, 'hours');
     m.add(days, 'days');
     m.add(months, 'months');
     m.add(years, 'years');
@@ -9,10 +12,28 @@ function getDate(days, months, years, format){
 }
 
 module.exports.templateTags = [{
-    name: 'DateAdd',
-    displayName: 'DateAdd',
+    name: 'DateTimeAdd',
+    displayName: 'DateTimeAdd',
     description: 'Provides a formatted date with addition.',
     args: [
+        {
+            displayName: 'Seconds to add',
+            description: 'The seconds to add to the date.',
+            type: 'number',
+            defaultValue: 0
+        },
+        {
+            displayName: 'Minutes to add',
+            description: 'The minutes to add to the date.',
+            type: 'number',
+            defaultValue: 0
+        },
+        {
+            displayName: 'Hours to add',
+            description: 'The hours to add to the date.',
+            type: 'number',
+            defaultValue: 0
+        },
         {
             displayName: 'Days to add',
             description: 'The days to add to the date.',
@@ -38,11 +59,11 @@ module.exports.templateTags = [{
             defaultValue: "YYYY-MM-DDTHH:mm:ssZ"
         }
     ],
-    async run (context, days, months, years, format) {
-        return getDate(days, months, years, format);
+    async run (context, seconds, minutes, hours, days, months, years, format) {
+        return getDate(seconds, minutes, hours, days, months, years, format);
     },
     liveDisplayName (context) {
         let values = context.map(c => c.value);
-        return "DateAdd (" + getDate(...values) + ")";
+        return "DateTimeAdd (" + getDate(...values) + ")";
     }
 }];

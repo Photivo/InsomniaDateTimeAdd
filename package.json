@@ -1,11 +1,11 @@
 {
-    "name": "insomnia-plugin-date-add",
-    "version": "1.0.1",
-    "main": "date-add.js",
+    "name": "insomnia-plugin-date-time-add",
+    "version": "1.0.0",
+    "main": "date-time-add.js",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/SebBrookfield/DateAdd"
+        "url": "https://github.com/Photivo/InsomniaDateTimeAdd"
     },
     "keywords": [
         "insomnia",
@@ -14,13 +14,13 @@
         "tag"
     ],
     "homepage": "https://insomnia.rest/plugins/insomnia-plugin-date-add",
-    "description": "Allows you to use a date as a template tag and allows basic addition.",
+    "description": "Allows you to use a date /time as a template tag and allows basic addition. forked from https://github.com/SebBrookfield/DateAdd that works only with day/month/year",
     "insomnia": {
-        "name": "Date Add",
-        "displayName": "Date Add",
-        "description": "Allows you to use a date as a template tag and allows basic addition.",
+        "name": "Date/Time Add",
+        "displayName": "Date/Time Add",
+        "description": "Allows you to use a date as a template tag and allows basic date & time addition.",
         "publisher": {
-            "name": "Sebastian Brookfield"
+            "name": "Photivo (Sebastian Brookfield original plugin)"
         },
         "unlisted": false
     },
